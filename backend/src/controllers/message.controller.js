@@ -1,6 +1,10 @@
 import User from "../models/user.model.js";
 import Message from "../models/message.model.js";
 import cloudinary from "../lib/cloudinary.js";
+import { getReceiverSocketId, io } from "../lib/socket.js";
+
+
+
 export const getUsersForSidebar = async(req,res)=>{
  
     try{
@@ -70,6 +74,12 @@ export const sendMessage = async(req,res)=>{
         await newMessage.save();
 
         //todo realtime fn goes here => SOCKET.IO
+
+        const receiverSocketId = getReceiverSocketId(receiverId);
+        if(receiverSocketId){
+            io.to(receiverSocketId).emit("newMessage",newMessage);
+        }
+
 
         res.status(201).json({newMessage});
         // res.status(201).json(newMessage); told by gpt but didn't work
