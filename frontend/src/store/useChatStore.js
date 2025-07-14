@@ -52,17 +52,19 @@ sendMessage: async (messageData) => {
     //todo:
 
     socket.on("newMessage", (newMessage) => {
+  
 
-      set({
-        messages: [...get().messages, newMessage],
-      
-
-
-      // const isMessageSentFromSelectedUser = newMessage.senderId === selectedUser._id;
-      // if (!isMessageSentFromSelectedUser) return;
 
       // set({
       //   messages: [...get().messages, newMessage],
+      
+
+
+      const isMessageSentFromSelectedUser = newMessage.senderId === selectedUser._id;
+      if (!isMessageSentFromSelectedUser) return;
+
+      set({
+        messages: [...get().messages, newMessage],
       });
     });
   },
