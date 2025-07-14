@@ -53,7 +53,7 @@ export const sendMessage = async(req,res)=>{
 
         const { text, image } = req.body;
         // const {id,receiverId} = req.params;
-        const {id : receiverId} = req.params;
+        const {id: receiverId} = req.params;
         // const receiverId = req.params; chatgpt told
         const senderId = req.user._id;
 
