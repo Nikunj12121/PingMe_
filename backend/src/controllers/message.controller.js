@@ -1,6 +1,6 @@
 import User from "../models/user.model.js";
 import Message from "../models/message.model.js";
-
+import cloudinary from "../lib/cloudinary.js";
 export const getUsersForSidebar = async(req,res)=>{
  
     try{
@@ -48,7 +48,9 @@ export const sendMessage = async(req,res)=>{
     try{
 
         const { text, image } = req.body;
-        const {id,receiverId} = req.params;
+        // const {id,receiverId} = req.params;
+        const {id : receiverId} = req.params;
+        // const receiverId = req.params; chatgpt told
         const senderId = req.user._id;
 
         let imageUrl;
@@ -70,6 +72,8 @@ export const sendMessage = async(req,res)=>{
         //todo realtime fn goes here => SOCKET.IO
 
         res.status(201).json({newMessage});
+        // res.status(201).json(newMessage); told by gpt but didn't work
+
 
     }catch(error){
         console.log("Error in sendMessage controller:",error.message);
