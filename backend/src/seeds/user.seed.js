@@ -5,57 +5,7 @@ import User from "../models/user.model.js";
 config();
 
 const seedUsers = [
-  // Female Users
-  {
-    email: "emma.thompson@example.com",
-    fullName: "Emma Thompson",
-    password: "123456",
-    profilePic: "https://randomuser.me/api/portraits/women/1.jpg",
-  },
-  {
-    email: "olivia.miller@example.com",
-    fullName: "Olivia Miller",
-    password: "123456",
-    profilePic: "https://randomuser.me/api/portraits/women/2.jpg",
-  },
-  {
-    email: "sophia.davis@example.com",
-    fullName: "Sophia Davis",
-    password: "123456",
-    profilePic: "https://randomuser.me/api/portraits/women/3.jpg",
-  },
-  {
-    email: "ava.wilson@example.com",
-    fullName: "Ava Wilson",
-    password: "123456",
-    profilePic: "https://randomuser.me/api/portraits/women/4.jpg",
-  },
-  {
-    email: "isabella.brown@example.com",
-    fullName: "Isabella Brown",
-    password: "123456",
-    profilePic: "https://randomuser.me/api/portraits/women/5.jpg",
-  },
-  {
-    email: "mia.johnson@example.com",
-    fullName: "Mia Johnson",
-    password: "123456",
-    profilePic: "https://randomuser.me/api/portraits/women/6.jpg",
-  },
-  {
-    email: "charlotte.williams@example.com",
-    fullName: "Charlotte Williams",
-    password: "123456",
-    profilePic: "https://randomuser.me/api/portraits/women/7.jpg",
-  },
-  {
-    email: "amelia.garcia@example.com",
-    fullName: "Amelia Garcia",
-    password: "123456",
-    profilePic: "https://randomuser.me/api/portraits/women/8.jpg",
-  },
-
-  // Male Users
+  // Existing Male Users
   {
     email: "james.anderson@example.com",
     fullName: "James Anderson",
@@ -98,12 +48,88 @@ const seedUsers = [
     password: "123456",
     profilePic: "https://randomuser.me/api/portraits/men/7.jpg",
   },
+
+  // New Male Users
+  {
+    email: "michael.hall@example.com",
+    fullName: "Michael Hall",
+    password: "123456",
+    profilePic: "https://randomuser.me/api/portraits/men/8.jpg",
+  },
+  {
+    email: "ethan.lee@example.com",
+    fullName: "Ethan Lee",
+    password: "123456",
+    profilePic: "https://randomuser.me/api/portraits/men/9.jpg",
+  },
+  {
+    email: "logan.young@example.com",
+    fullName: "Logan Young",
+    password: "123456",
+    profilePic: "https://randomuser.me/api/portraits/men/10.jpg",
+  },
+  {
+    email: "sebastian.king@example.com",
+    fullName: "Sebastian King",
+    password: "123456",
+    profilePic: "https://randomuser.me/api/portraits/men/11.jpg",
+  },
+  {
+    email: "jack.wright@example.com",
+    fullName: "Jack Wright",
+    password: "123456",
+    profilePic: "https://randomuser.me/api/portraits/men/12.jpg",
+  },
+  {
+    email: "leo.green@example.com",
+    fullName: "Leo Green",
+    password: "123456",
+    profilePic: "https://randomuser.me/api/portraits/men/13.jpg",
+  },
+  {
+    email: "owen.scott@example.com",
+    fullName: "Owen Scott",
+    password: "123456",
+    profilePic: "https://randomuser.me/api/portraits/men/14.jpg",
+  },
+    {
+    email: "ryan.baker@example.com",
+    fullName: "Ryan Baker",
+    password: "123456",
+    profilePic: "https://randomuser.me/api/portraits/men/15.jpg",
+  },
+  {
+    email: "nathan.walker@example.com",
+    fullName: "Nathan Walker",
+    password: "123456",
+    profilePic: "https://randomuser.me/api/portraits/men/16.jpg",
+  },
+  {
+    email: "aaron.turner@example.com",
+    fullName: "Aaron Turner",
+    password: "123456",
+    profilePic: "https://randomuser.me/api/portraits/men/17.jpg",
+  },
+  {
+    email: "julian.perez@example.com",
+    fullName: "Julian Perez",
+    password: "123456",
+    profilePic: "https://randomuser.me/api/portraits/men/18.jpg",
+  },
+  {
+    email: "adrian.campbell@example.com",
+    fullName: "Adrian Campbell",
+    password: "123456",
+    profilePic: "https://randomuser.me/api/portraits/men/19.jpg",
+  },
+
 ];
+
 
 const seedDatabase = async () => {
   try {
     await connectDB();
-
+      // await User.deleteMany({});
     await User.insertMany(seedUsers);
     console.log("Database seeded successfully");
   } catch (error) {
@@ -112,4 +138,9 @@ const seedDatabase = async () => {
 };
 
 // Call the function
+
+
+
+
+
 seedDatabase();
